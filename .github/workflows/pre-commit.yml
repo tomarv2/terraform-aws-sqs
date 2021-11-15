@@ -18,6 +18,9 @@ jobs:
 
       - name: Install Python
         uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+          architecture: 'x64'
 
       - name: Build matrix
         id: matrix
@@ -40,6 +43,9 @@ jobs:
 
       - name: Install Python
         uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+          architecture: 'x64'
 
       - name: Terraform min/max versions
         id: minMax
@@ -54,19 +60,6 @@ jobs:
 
       - name: Install pre-commit dependencies
         run: pip install pre-commit
-
-#      - name: Execute pre-commit
-#        # Run only validate pre-commit check on min version supported
-#        if: ${{ matrix.directory !=  '.' }}
-#        run:
-#          pre-commit run terraform_validate --color=always --show-diff-on-failure --files ${{ matrix.directory }}/*
-#
-#      - name: Execute pre-commit
-#        # Run only validate pre-commit check on min version supported
-#        if: ${{ matrix.directory ==  '.' }}
-#        run:
-#          pre-commit run terraform_validate --color=always --show-diff-on-failure --files $(ls *.tf)
-
 
 # Max Terraform version
   getBaseVersion:
@@ -98,6 +91,9 @@ jobs:
 
       - name: Install Python
         uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+          architecture: 'x64'
 
       - name: Install Terraform v${{ matrix.version }}
         uses: hashicorp/setup-terraform@v1
@@ -112,6 +108,5 @@ jobs:
           curl -L "$(curl -s https://api.github.com/repos/terraform-linters/tflint/releases/latest | grep -o -E "https://.+?_linux_amd64.zip")" > tflint.zip && unzip tflint.zip && rm tflint.zip && sudo mv tflint /usr/bin/
 
       - name: Execute pre-commit
-        # Run all pre-commit checks on max version supported
         if: ${{ matrix.version ==  needs.getBaseVersion.outputs.maxVersion }}
         run: pre-commit run --color=always --show-diff-on-failure --all-files
