@@ -138,8 +138,8 @@ No modules.
 | <a name="input_dead_letter_max_receive_count"></a> [dead\_letter\_max\_receive\_count](#input\_dead\_letter\_max\_receive\_count) | Passthrough to aws\_sqs\_queue module  redrive\_policy: maxReceiveCount | `number` | `5` | no |
 | <a name="input_dead_letter_queue"></a> [dead\_letter\_queue](#input\_dead\_letter\_queue) | Whether to create a matching dead letter queue | `bool` | `false` | no |
 | <a name="input_delay_seconds"></a> [delay\_seconds](#input\_delay\_seconds) | Passthrough to aws\_sqs\_queue module | `number` | `0` | no |
-| <a name="input_deploy_sqs"></a> [deploy\_sqs](#input\_deploy\_sqs) | feature flag, true or false | `bool` | `true` | no |
-| <a name="input_encrypted_sqs"></a> [encrypted\_sqs](#input\_encrypted\_sqs) | feature flag, true or false | `bool` | `true` | no |
+| <a name="input_deploy_sqs"></a> [deploy\_sqs](#input\_deploy\_sqs) | Feature flag, true or false | `bool` | `true` | no |
+| <a name="input_encrypted_sqs"></a> [encrypted\_sqs](#input\_encrypted\_sqs) | Feature flag, true or false | `bool` | `true` | no |
 | <a name="input_kms_data_key_reuse_period_seconds"></a> [kms\_data\_key\_reuse\_period\_seconds](#input\_kms\_data\_key\_reuse\_period\_seconds) | Passthrough to aws\_sqs\_queue module | `number` | `300` | no |
 | <a name="input_kms_master_key_alias"></a> [kms\_master\_key\_alias](#input\_kms\_master\_key\_alias) | The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. | `string` | `"aws/sqs"` | no |
 | <a name="input_max_message_size"></a> [max\_message\_size](#input\_max\_message\_size) | Passthrough to aws\_sqs\_queue module | `number` | `262144` | no |

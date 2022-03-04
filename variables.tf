@@ -9,7 +9,7 @@ variable "prjid" {
 }
 
 variable "deploy_sqs" {
-  description = "feature flag, true or false"
+  description = "Feature flag, true or false"
   default     = true
   type        = bool
 }
@@ -87,7 +87,7 @@ variable "policy" {
 }
 
 variable "encrypted_sqs" {
-  description = "feature flag, true or false"
+  description = "Feature flag, true or false"
   default     = true
   type        = bool
 }
