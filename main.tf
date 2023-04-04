@@ -20,7 +20,7 @@ resource "aws_sqs_queue" "queue" {
   kms_master_key_id                 = var.encrypted_sqs != false ? "alias/${var.kms_master_key_alias}" : null
   kms_data_key_reuse_period_seconds = var.encrypted_sqs != false ? var.kms_data_key_reuse_period_seconds : null
   policy                            = var.policy
-  tags                              = var.custom_tags != null ? merge(var.custom_tags, local.shared_tags) : merge(local.shared_tags)
+  tags                              = var.extra_tags != null ? merge(var.extra_tags, local.shared_tags) : merge(local.shared_tags)
 }
 
 resource "aws_sqs_queue" "dead_letter_queue" {
@@ -32,5 +32,5 @@ resource "aws_sqs_queue" "dead_letter_queue" {
   kms_master_key_id                 = var.encrypted_sqs != false ? "alias/${var.kms_master_key_alias}" : null
   kms_data_key_reuse_period_seconds = var.encrypted_sqs != false ? var.kms_data_key_reuse_period_seconds : null
 
-  tags = var.custom_tags != null ? merge(var.custom_tags, local.shared_tags) : merge(local.shared_tags)
+  tags = var.extra_tags != null ? merge(var.extra_tags, local.shared_tags) : merge(local.shared_tags)
 }
